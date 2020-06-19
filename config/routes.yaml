@@ -1,3 +1,15 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+homePage:
+    path: /home
+    controller: App\Controller\MainController::homePage
+
+productPage:
+    path: /product
+    controller: App\Controller\MainController::productPage
+
+demandePage:
+    path: /demande
+    controller: App\Controller\MainController::demandePage

@@ -1,0 +1,28 @@
+{# templates/Navbar/navbar.html.twig #}
+
+<header>
+
+  <nav class="navbar navbar-dark bg-dark">
+
+    <span class="navbar-brand mb-0 h1">Masqu'Air</span>
+
+    <span class="navbar-text">
+      
+    </span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a style="margin-left: 2em"class="nav-item nav-link {{ isActive1 }}" href="{{ path('homePage') }}">Accueil</span></a>
+        <a style="margin-left: 2em" class="nav-item nav-link {{ isActive2 }}" href="{{ path('productPage') }}">Produit</a>
+        <a style="margin-left: 2em"class="nav-item nav-link {{ isActive3 }}" href="{{ path('demandePage') }}">Demande</a>
+      </div>
+    </div>
+    
+
+  </nav>
+
+</header>
