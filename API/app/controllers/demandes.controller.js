@@ -12,6 +12,8 @@ exports.create = (req, res) => {
       return;
     }
 
+    var nowDate = new Date();
+
     // Create a Demande
     const demande = {
         nom: req.body.nom,
@@ -20,7 +22,7 @@ exports.create = (req, res) => {
         tel: req.body.tel,
         email: req.body.email,
         quantite: req.body.quantite,
-        date: req.body.date
+        date: nowDate.getDate()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getFullYear()
     };
   
     console.log(demande);
