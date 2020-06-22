@@ -22,7 +22,8 @@ exports.create = (req, res) => {
         tel: req.body.tel,
         email: req.body.email,
         quantite: req.body.quantite,
-        date: nowDate.getDate()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getFullYear()
+        date: nowDate.getDate()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getFullYear(),
+        statut: 0
     };
   
     console.log(demande);

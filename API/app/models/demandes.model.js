@@ -20,6 +20,9 @@ module.exports = (sequelize, Sequelize) => {
       },
       date: {
         type: Sequelize.STRING(20)
+      },
+      statut: {
+        type: Sequelize.INTEGER(1)
       }
     },
     {
