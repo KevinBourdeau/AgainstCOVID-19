@@ -33,7 +33,7 @@ class MainController
     fclose($file);
 
     $content = 
-      $twig->render('Header/header.html.twig') . 
+      $twig->render('Header/header.html.twig', ['page' => 'Accueil']) . 
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => 'active', 'isActive2' => null, 'isActive3' => null]) . 
       $twig->render('Body/homePage.html.twig', ['s1' => $s1, 's2' => $s2, 's3' => $s3]) . 
       $twig->render('Footer/footer.html.twig') . 
@@ -45,7 +45,7 @@ class MainController
   public function productPage(Environment $twig) {
 
     $content =
-      $twig->render('Header/header.html.twig') . 
+      $twig->render('Header/header.html.twig', ['page' => 'Produit']) . 
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => 'active', 'isActive3' => null]) . 
       $twig->render('Body/productPage.html.twig') . 
       $twig->render('Footer/footer.html.twig') . 
@@ -58,7 +58,7 @@ class MainController
   public function demandePage(Environment $twig) {
 
     $content =
-      $twig->render('Header/header.html.twig') . 
+      $twig->render('Header/header.html.twig', ['page' => 'Demande']) . 
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => null, 'isActive3' => 'active']) .
       $twig->render('Footer/footer.html.twig') . 
       $twig->render('End/end.html.twig');
