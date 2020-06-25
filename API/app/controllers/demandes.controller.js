@@ -1,6 +1,5 @@
 const db = require("../models");
 const Demande = db.demandes;
-const Op = db.Sequelize.Op;
 
 // Create and Save a new Demande
 exports.create = (req, res) => {
@@ -18,7 +17,7 @@ exports.create = (req, res) => {
   const demande = {
       nom: req.body.nom,
       prenom: req.body.prenom,
-      nom_etablissement: req.body.etablissement,
+      nom_etablissement: req.body.nom_etablissement,
       tel: req.body.tel,
       email: req.body.email,
       quantite: req.body.quantite,
