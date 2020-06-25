@@ -4,20 +4,20 @@
 
 homePage:
     path: /home
-    controller: App\Controller\MainController::homePage
+    controller: App\Controller\HomeController::homePage
 
 productPage:
     path: /product
-    controller: App\Controller\MainController::productPage
+    controller: App\Controller\ProductController::productPage
 
 demandePage:
     path: /demande
-    controller: App\Controller\MainController::demandePage
+    controller: App\Controller\DemandeController::demandePage
 
 adminPage:
     path: /admin
-    controller: App\Controller\MainController::adminPage
+    controller: App\Controller\AdminController::adminPage
 
 connectAdminPage:
     path: /connectAdmin
-    controller: App\Controller\MainController::connectAdminPage
+    controller: App\Controller\ConnectAdminController::connectAdminPage
