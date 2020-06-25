@@ -3,17 +3,18 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Create a new Demande
+    // Création d'une nouvelle entrée
     router.post("/", demandes.create);
     
-    // Update a Demande with id
+    // Modification d'une entrée via id
     router.put("/:id", demandes.update);
 
-    // Delete a Demande with id
+    // Suppression d'une entrée via id
     router.delete("/:id", demandes.delete);
 
-    // Retrieve all Demandes
+    // Récupération de toutes les entrées
     router.get("/", demandes.findAll);
   
+    // Route de base
     app.use('/api/demandes', router);
   };
