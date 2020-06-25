@@ -79,6 +79,7 @@ class MainController
     $content =
       $twig->render('Header/header.html.twig', ['page' => 'Demande']) . 
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => null, 'isActive3' => 'active', 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) .
+      $twig->render('Body/formPage.html.twig') .
       $twig->render('Footer/footer.html.twig') . 
       $twig->render('End/end.html.twig');
 

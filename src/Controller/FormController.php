@@ -11,9 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FormController extends AbstractController
 {
-    /**
-     * @Route("/form", name="form")
-     */
+
     public function requestForm(Request $request)
     {
         // Instantiate a new Form
@@ -45,7 +43,7 @@ class FormController extends AbstractController
         }
         
         // Create the view and the form
-        return $this->render('form/index.html.twig', [
+        return $this->render('Body/formPage.html.twig', [
             'form' => $form->createView(),
             
         ]);
