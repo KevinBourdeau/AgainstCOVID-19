@@ -1,19 +1,19 @@
 const db = require("../models");
 const Demande = db.demandes;
 
-// Create and Save a new Demande
+// Création et sauvegarde d'une nouvelle demande
 exports.create = (req, res) => {
-  // Validate request
+  // Vérifie que la requête n'est pas vide
   if (!req.body.nom) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      error: "La requête est vide !"
     });
     return;
   }
 
   var nowDate = new Date();
 
-  // Create a Demande
+  // Création de la demande
   const demande = {
       nom: req.body.nom,
       prenom: req.body.prenom,
@@ -27,7 +27,7 @@ exports.create = (req, res) => {
 
   console.log(demande);
 
-  // Save Demande in the database
+  // Sauvegarde dans la BDD
   Demande.create(demande)
     .then(data => {
       res.send(data);
@@ -35,11 +35,12 @@ exports.create = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Demande."
+          err.message || "Il y a eu une erreur lors de la tentative de création de la demande."
       });
     });
 };
 
+// Mise à jour d'une entrée de la table
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -49,21 +50,22 @@ exports.update = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Demande was updated successfully."
+          message: "L'entrée a été correctement modifiée."
         });
       } else {
         res.send({
-          message: `Cannot update Demande with id=${id}. Maybe Demande was not found or req.body is empty!`
+          message: "Impossible de mofifier l'entrée avec l'id " + id
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Demande with id=" + id
+        message: "Il y a eu une erreur lors de la tentative de modification de l'entrée avec l'id " + id
       });
     });
 };
 
+// Suppression d'une entrée de la table
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -73,21 +75,22 @@ exports.delete = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Demande was deleted successfully!"
+          message: "L'entrée a été correctement supprimée"
         });
       } else {
         res.send({
-          message: `Cannot delete Demande with id=${id}. Maybe Demande was not found!`
+          message: "Impossible de supprimer l'entrée avec l'id" + id
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Demande with id=" + id
+        message: "Il y a eu une erreur lors de la tentative de suppression de l'entrée avec l'id " + id
       });
     });
 };
 
+// Retourne toutes les entrées de la table
 exports.findAll = (req, res) => {
   Demande.findAll()
     .then(data => {
@@ -96,7 +99,7 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Demandes."
+          err.message || "Une erreur est advenue lors de la récupération des entrées."
       });
     });
 };

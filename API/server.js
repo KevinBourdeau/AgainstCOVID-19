@@ -10,24 +10,22 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-// parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 
 db.sequelize.sync();
 
-// simple route
+// Route vers l'API
 app.get("/", (req, res) => {
-  res.json({ message: "Salut les ptits amis lol" });
+  res.json({ message: "API Against Covid-19" });
 });
 
 require("./app/routes/demandes.routes")(app);
 
-// set port, listen for requests
+// Choix du port, début de l'écoute
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
