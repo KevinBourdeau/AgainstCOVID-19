@@ -24,10 +24,10 @@ class DemandeController extends AbstractController
     }
   }
 
-  public function demandePage(Environment $twig, Request $request)
+  public function demandePage(Environment $twig, Request $request, \Swift_Mailer $mail)
   {
 
-    $this->sessionStart(); 
+    $this->sessionStart();
 
     // Instantiate a new Form
     $demande = new Form();
@@ -38,6 +38,26 @@ class DemandeController extends AbstractController
     $form->handleRequest($request);
     //Test if the form is correctly submited
     if ($form->isSubmitted() && $form->isValid()) {
+      $data = $form->getData();
+      // Send the email
+      $message = (new \Swift_Message('Récapitulatif de la demande'))
+
+        //On attrbiut l'expéditeur
+        ->setFrom('kevin.bourdeau2015@gmail.com')
+
+        //On attribue le destinataire
+        ->setTo('kevin.bourdeau2015@gmail.com')
+
+        //On set le type de contenue
+        ->setContentType("text/html")
+
+        //On crée le message avec la vue twig
+        ->setBody(
+          $this->renderView('Mail/mail.html.twig', compact('data'))
+        );
+      $mail->send($message);
+
+
       // HTTP request to add a user
       $client = HttpClient::create();
       $client->request('POST', 'http://localhost:8080/api/demandes', [
@@ -48,9 +68,7 @@ class DemandeController extends AbstractController
           'tel' => $demande->getTel(),
           'email' => $demande->getEmail(),
           'quantite' => $demande->getQuantite(),
-
         ]
-
       ]);
     }
 
@@ -60,13 +78,11 @@ class DemandeController extends AbstractController
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => null, 'isActive3' => 'active', 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) .
       $twig->render('Body/formPage.html.twig', [
         'form' => $form->createView(),
-  
+
       ]) .
       $twig->render('Footer/footer.html.twig') .
       $twig->render('End/end.html.twig');
 
     return new Response($content);
   }
-
-
 }
