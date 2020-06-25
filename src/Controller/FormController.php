@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormController extends AbstractController
 {
 
-    public function requestForm(Request $request)
+    /*public function requestForm(Request $request)
     {
         // Instantiate a new Form
         $demande = new Form();
@@ -47,6 +47,6 @@ class FormController extends AbstractController
             'form' => $form->createView(),
             
         ]);
-    }
+    }*/
    
 }
