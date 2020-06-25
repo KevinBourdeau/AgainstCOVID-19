@@ -28,14 +28,9 @@ class Form
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nomEtablissement;
-
-    /**
      * @ORM\Column(type="bigint")
      */
-    private $nTel;
+    private $tel;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,7 +45,17 @@ class Form
     /**
      * @ORM\Column(type="date")
      */
-    private $dateDemande;
+    private $date;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom_etablissement;
 
     public function getId(): ?int
     {
@@ -83,24 +88,24 @@ class Form
 
     public function getNomEtablissement(): ?string
     {
-        return $this->nomEtablissement;
+        return $this->nom_etablissement;
     }
 
-    public function setNomEtablissement(string $nomEtablissement): self
+    public function setNomEtablissement(string $nom_etablissement): self
     {
-        $this->nomEtablissement = $nomEtablissement;
+        $this->nom_etablissement = $nom_etablissement;
 
         return $this;
     }
 
-    public function getNTel(): ?string
+    public function getTel(): ?string
     {
-        return $this->nTel;
+        return $this->tel;
     }
 
-    public function setNTel(string $nTel): self
+    public function setTel(string $tel): self
     {
-        $this->nTel = $nTel;
+        $this->tel = $tel;
 
         return $this;
     }
@@ -129,14 +134,26 @@ class Form
         return $this;
     }
 
-    public function getDateDemande(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->dateDemande;
+        return $this->date;
     }
 
-    public function setDateDemande(\DateTimeInterface $dateDemande): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->dateDemande = $dateDemande;
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
