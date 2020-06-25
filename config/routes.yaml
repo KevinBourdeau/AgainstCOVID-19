@@ -13,3 +13,11 @@ productPage:
 demandePage:
     path: /demande
     controller: App\Controller\MainController::demandePage
+
+adminPage:
+    path: /admin
+    controller: App\Controller\MainController::adminPage
+
+connectAdminPage:
+    path: /connectAdmin
+    controller: App\Controller\MainController::connectAdminPage
