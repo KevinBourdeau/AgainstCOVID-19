@@ -30,11 +30,13 @@ exports.create = (req, res) => {
   // Sauvegarde dans la BDD
   Demande.create(demande)
     .then(data => {
-      res.send(data);
+      res.send({
+        message: "L'entrée a été correctement ajoutée."
+      });
     })
     .catch(err => {
       res.status(500).send({
-        message:
+        error:
           err.message || "Il y a eu une erreur lors de la tentative de création de la demande."
       });
     });
@@ -54,13 +56,14 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: "Impossible de mofifier l'entrée avec l'id " + id
+          error: "Impossible de mofifier l'entrée avec l'id " + id
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Il y a eu une erreur lors de la tentative de modification de l'entrée avec l'id " + id
+        error:
+          err.message ||  "Il y a eu une erreur lors de la tentative de modification de l'entrée avec l'id " + id
       });
     });
 };
@@ -79,13 +82,14 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: "Impossible de supprimer l'entrée avec l'id" + id
+          error: "Impossible de supprimer l'entrée avec l'id" + id
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Il y a eu une erreur lors de la tentative de suppression de l'entrée avec l'id " + id
+        error:
+          err.message ||  "Il y a eu une erreur lors de la tentative de suppression de l'entrée avec l'id " + id
       });
     });
 };
@@ -98,7 +102,7 @@ exports.findAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
+        error:
           err.message || "Une erreur est advenue lors de la récupération des entrées."
       });
     });
