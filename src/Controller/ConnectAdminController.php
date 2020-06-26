@@ -5,8 +5,9 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ConnectAdminController
+class ConnectAdminController extends AbstractController
 {
 
   public function sessionStart() 
@@ -23,14 +24,34 @@ class ConnectAdminController
 
     $this->sessionStart();
 
-    $content =
-      $twig->render('Header/header.html.twig', ['page' => 'Demande']) . 
-      $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => null, 'isActive3' => null, 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) .
-      $twig->render('Body/connectAdmin.html.twig') . 
-      $twig->render('Footer/footer.html.twig') . 
-      $twig->render('End/end.html.twig');
+    $content = $twig->render('Body/connectAdmin.html.twig');
 
     return new Response($content);
 
   }
+
+  public function connectAdminCheck(Environment $twig) 
+  {
+
+    $this->sessionStart();
+
+    $file = fopen( "../templates/Content/security.txt", "r" );
+    $password = "";
+    while(!feof($file)) {
+      $password .= fgets($file, 4096);
+    }
+    fclose($file);
+
+    if ($_POST['password'] == $password)
+    {
+      $_SESSION['isAdmin'] = true;
+      return $this->redirectToRoute('homePage');
+    }
+    else
+    {
+      return $this->redirectToRoute('connectAdminPage');
+    }
+
+  }
+  
 }

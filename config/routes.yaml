@@ -21,3 +21,7 @@ adminPage:
 connectAdminPage:
     path: /connectAdmin
     controller: App\Controller\ConnectAdminController::connectAdminPage
+
+connectAdminCheck:
+    path: /connectAdminCheck
+    controller: App\Controller\ConnectAdminController::connectAdminCheck
