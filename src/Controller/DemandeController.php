@@ -28,26 +28,27 @@ class DemandeController extends AbstractController
 
     $this->sessionStart();
 
-    // Instantiate a new Form
+    // On instancie un nouveau formulaire
     $demande = new Form();
 
-    //Instantiate the form
+    //On crée le formulaire
     $form = $this->createForm(FormType::class, $demande);
 
     $form->handleRequest($request);
-    //Test if the form is correctly submited
+    //On verifie si le formulaire est bien soumis et valide
     if ($form->isSubmitted() && $form->isValid()) {
+      //On récupère les données pour les envoyer sous forme d'émail
       $data = $form->getData();
-      // Send the email
+      // On prépare l'émail
       $message = (new \Swift_Message('Récapitulatif de la demande'))
 
         //On attrbiut l'expéditeur
-        ->setFrom('kevin.bourdeau2015@gmail.com')
+        ->setFrom(['kevin.bourdeau2015@gmail.com' => 'AgainstCOVID19'])
 
         //On attribue le destinataire
-        ->setTo('kevin.bourdeau2015@gmail.com')
+        ->setTo(['kevin.bourdeau2015@gmail.com', $data->getEmail()])
 
-        //On set le type de contenue
+        //On set le type de contenu
         ->setContentType("text/html")
 
         //On crée le message avec la vue twig
@@ -55,9 +56,9 @@ class DemandeController extends AbstractController
           $this->renderView('Mail/mail.html.twig', compact('data'))
         );
       $mail->send($message);
+ 
 
-
-      // HTTP request to add a user
+      // On crée une requête HTTP de type POST afin de stocker le formulaire dans la bdd
       $client = HttpClient::create();
       $client->request('POST', 'http://localhost:8080/api/demandes', [
         'body' => [
@@ -69,6 +70,8 @@ class DemandeController extends AbstractController
           'quantite' => $demande->getQuantite(),
         ]
       ]);
+      //On redirige vers la page d'accueil
+      return $this->redirectToRoute('homePage');
     }
 
 

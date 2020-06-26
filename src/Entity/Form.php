@@ -51,7 +51,6 @@ class Form
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank
      */
     private $date;
 
