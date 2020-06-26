@@ -1,0 +1,17 @@
+{# templates/Body/tableRow.html.twig #}
+
+                <tr>
+                <th scope="row">{{ id }}</th>
+                <td>{{ nom }}</td>
+                <td>{{ prenom }}</td>
+                <td>{{ nom_etablissement }}</td>
+                <td>{{ tel }}</td>
+                <td>{{ email }}</td>
+                <td>{{ quantite }}</td>
+                <td>{{ date }}</td>
+                {% if status == 0 %}
+                    <td>Non traité</td>
+                {% else %}
+                    <td>Traité</td>
+                {% endif %}
+                </tr>
