@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FormRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 
 /**
  * @ORM\Entity(repositoryClass=FormRepository::class)
@@ -68,6 +69,11 @@ class Form
      * @Assert\NotBlank
      */
     private $nom_etablissement;
+    
+    /**
+     * @Recaptcha\IsTrue
+     */
+    public $recaptcha;
 
     public function getId(): ?int
     {

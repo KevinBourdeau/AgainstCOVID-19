@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 
 class FormType extends AbstractType
 {
@@ -22,6 +23,21 @@ class FormType extends AbstractType
             ->add('tel', TelType::class)
             ->add('email', EmailType::class)
             ->add('quantite', IntegerType::class)
+            ->add("recaptcha", EWZRecaptchaType::class, array(
+                "attr" => array(
+                    "options" => array(
+                        "theme" => "light",
+                        "type" => "image",
+                        "size" => "normal",
+                        "defer" => true,
+                        "async" => true,
+                        )
+                    ),
+                    "mapped" => false,
+                    "constraints" => array(
+                        new RecaptchaTrue()
+                    )
+                ));
         ;
     }
 

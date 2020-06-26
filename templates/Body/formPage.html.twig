@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 {% block stylesheets %}
 
 		<script src="{{ asset('js/jquery.js') }}"></script>
@@ -23,10 +24,20 @@
 		{{ form_row(form.tel, {'label': 'Numéro téléphone', 'attr': {'placeholder': 'Entrez votre numéro de téléphone'}})}}
 		{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez votre email'}})}}
 		{{ form_row(form.quantite, {'label': 'Quantité', 'attr': {'placeholder': 'Entrez la quantité que vous voulez'}})}}
-		<br/>
-		<input type="submit" value="Valider" name="submitpost" onclick="return callValidation();">
 
+		<br/>
+		<input id="btn_submit" type="submit" value="Valider" name="submitpost">
+		{% form_theme form '@EWZRecaptcha/Form/ewz_recaptcha_widget.html.twig' %}
+
+						{{ form_widget(form.recaptcha, { 'attr': {
+							'options' : {
+								'theme': 'light',
+								'type': 'image',
+								'size': 'normal'
+							},
+						} }) }}
 		{{ form_end(form)}}
 
+		
 
 	{% endblock %}

@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^1.10",
+        "excelwebzone/recaptcha-bundle": "^1.5",
         "ocramius/proxy-manager": "^2.8",
         "swiftmailer/swiftmailer": "^6.2",
         "symfony/asset": "5.1.*",
