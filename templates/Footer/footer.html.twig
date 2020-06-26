@@ -1,51 +1,22 @@
 {# templates/Footer/footer.html.twig #}
 
 
-<footer style='position: relative; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.95); margin-left: 0' class="page-footer row">
+<footer class="row">
     <div class="container">
         
-      <div class="row py-4">
+      <div style='align-items: center' class="row py-4">
 
-        <div class="col-6 col-md text-light">
-          <h5>Contact</h5>
-          <ul class="list-unstyled text-small">
-            <li>Tel : <a class="text-white" href="#">UN NUMERO</a></li>
-            <li>E-mail : <a class="text-white" href="#">UNE ADRESSE E-MAIL</a></li>
-            <li>Adresse : <a class="text-white" href="#">Team feature</a></li>
-            <li><a class="text-white" href="#">Stuff for developers</a></li>
-            <li><a class="text-white" href="#">Another one</a></li>
-            <li><a class="text-white" href="#">Last time</a></li>
-          </ul>
+        <div class="col-md text-light text-center">
+          <h5><a class='text-light' href='#'>Contact</a></h5>
         </div>
-        <div class="col-6 col-md text-light">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-white" href="#">Resource</a></li>
-            <li><a class="text-white" href="#">Resource name</a></li>
-            <li><a class="text-white" href="#">Another resource</a></li>
-            <li><a class="text-white" href="#">Final resource</a></li>
-          </ul>
+        <div class="col-md text-light text-center">
+          <h5><a class='text-light' href='{{ path('connectAdminPage') }}'>Espace Administrateur</a></h5>
         </div>
-        <div class="col-6 col-md text-light">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-white" href="#">Business</a></li>
-            <li><a class="text-white" href="#">Education</a></li>
-            <li><a class="text-white" href="#">Government</a></li>
-            <li><a class="text-white" href="#">Gaming</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md text-light">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-white" href="#">Team</a></li>
-            <li><a class="text-white" href="#">Locations</a></li>
-            <li><a class="text-white" href="#">Privacy</a></li>
-            <li><a class="text-white" href="#">Terms</a></li>
-          </ul>
+        <div class="col-md text-muted text-center">
+          <h6>@2020 - AgainstCOVID-19 - CESI</h5>
         </div>
 
-        <div class="col-6 col-md text-light py-4 text-center">
+        <div class="col-md text-light py-4 text-center">
           <a class="btn btn-lg btn-light" href="#" role="button">Retour en haut</a>
         </div>
 
