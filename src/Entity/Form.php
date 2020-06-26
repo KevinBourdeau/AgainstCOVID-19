@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FormRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FormRepository::class)
@@ -19,31 +20,38 @@ class Form
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="bigint")
+     * @Assert\NotBlank
      */
     private $tel;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\PositiveOrZero
      */
     private $quantite;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $date;
 
@@ -54,6 +62,7 @@ class Form
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom_etablissement;
 
