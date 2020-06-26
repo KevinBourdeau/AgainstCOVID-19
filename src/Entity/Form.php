@@ -33,6 +33,10 @@ class Form
     /**
      * @ORM\Column(type="bigint")
      * @Assert\NotBlank
+     * @Assert\Length(
+     *       min = 10,
+     *       max = 10
+     * )
      */
     private $tel;
 
@@ -45,7 +49,7 @@ class Form
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Assert\PositiveOrZero
+     * @Assert\Positive
      */
     private $quantite;
 
