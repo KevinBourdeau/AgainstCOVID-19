@@ -16,7 +16,10 @@ class DemandeController extends AbstractController
 
   public function sessionStart()
   {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     if (isset($_SESSION['isAdmin']) == false) {
       $_SESSION['isAdmin'] = false;
     }
