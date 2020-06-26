@@ -6,7 +6,6 @@
 		<script src="{{ asset('js/jquery.js') }}"></script>
 		<script src="{{ asset('js/autocomplete.js') }}"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoq3pqBB4rNSPZtWBmRH60T-T-CLr9qWE&libraries=places"></script>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	{% endblock %}
 
@@ -24,7 +23,6 @@
 		{{ form_row(form.tel, {'label': 'Numéro téléphone', 'attr': {'placeholder': 'Entrez votre numéro de téléphone'}})}}
 		{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez votre email'}})}}
 		{{ form_row(form.quantite, {'label': 'Quantité', 'attr': {'placeholder': 'Entrez la quantité que vous voulez'}})}}
-		<div class="g-recaptcha" data-sitekey="6LfkR6kZAAAAAB6BrLrf3CCLt8tQbPSCue-HC-h6"></div>
 		<br/>
 		<input type="submit" value="Valider" name="submitpost" onclick="return callValidation();">
 
