@@ -1,9 +1,1 @@
-Yo, voici un texte d'exemple pour la section 1 de la HomePage AH BAH SUPER !
-
-1
-2
-3
-4
-5
-
-FINI !!!!!
+Nous sommes 3 étudiants ingénieurs de deuxième année en section informatique à CESI Labège : Corentin, Gabriel et Kévin.
