@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<!-- Compiled and minified CSS -->
+	<link
+	rel="stylesheet" href="{{ asset('css/contact.css') }}">
+	<!-- Compiled and minified JavaScript -->
+	<script src="{{ asset('js/jquery.js') }}"></script>
+	<script src="{{ asset('js/map.js') }}"></script>
+	<!--The callback parameter executes the initMap() function-->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoq3pqBB4rNSPZtWBmRH60T-T-CLr9qWE&callback=initMap"></script>
+
+{% endblock %}
+
+{% block body %}
+	<h3>My Google Maps Demo</h3>
+	<!--Element div de la map -->
+	<div id="map"></div>
+
+{% endblock %}
