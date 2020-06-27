@@ -23,7 +23,7 @@ class ContactController extends AbstractController
 
     $content =
       $twig->render('Header/header.html.twig', ['page' => 'Produit']) . 
-      $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => 'active', 'isActive3' => null, 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) . 
+      $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => null, 'isActive3' => null, 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) . 
       $twig->render('Body/contactPage.html.twig') . 
       $twig->render('Footer/footer.html.twig') . 
       $twig->render('End/end.html.twig');
