@@ -2,33 +2,37 @@
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block stylesheets %}
+	<!-- Compiled and minified JavaScript -->
+	<script src="{{ asset('js/jquery.js') }}"></script>
+	<script src="{{ asset('js/autocomplete.js') }}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoq3pqBB4rNSPZtWBmRH60T-T-CLr9qWE&libraries=places"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-		<script src="{{ asset('js/jquery.js') }}"></script>
-		<script src="{{ asset('js/autocomplete.js') }}"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoq3pqBB4rNSPZtWBmRH60T-T-CLr9qWE&libraries=places"></script>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
 
-	{% endblock %}
+{% block body %}
 
-	{% block body %}
+	<h2>
+		Demandes
+	</h2>
 
-		<h2>
-			Demandes
-		</h2>
+	{# Affichage du formulaire avec les données entrées #}
+	{{ form_start(form)}}
 
-		{{ form_start(form)}}
+	{{ form_row(form.nom, {'label': 'Nom', 'attr': {'placeholder': 'Entrez votre nom'}})}}
+	{{ form_row(form.prenom, {'label': 'Prénom', 'attr': {'placeholder': 'Entrez votre prénom'}})}}
+	{{ form_row(form.nomEtablissement, {'label': 'Nom établissement', 'attr': {'placeholder': 'Entrez le nom de votre établissement'}})}}
+	{{ form_row(form.tel, {'label': 'Numéro téléphone', 'attr': {'placeholder': 'Entrez votre numéro de téléphone'}})}}
+	{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez votre email'}})}}
+	{{ form_row(form.quantite, {'label': 'Quantité', 'attr': {'placeholder': 'Entrez la quantité que vous voulez'}})}}
 
-		{{ form_row(form.nom, {'label': 'Nom', 'attr': {'placeholder': 'Entrez votre nom'}})}}
-		{{ form_row(form.prenom, {'label': 'Prénom', 'attr': {'placeholder': 'Entrez votre prénom'}})}}
-		{{ form_row(form.nomEtablissement, {'label': 'Nom établissement', 'attr': {'placeholder': 'Entrez le nom de votre établissement'}})}}
-		{{ form_row(form.tel, {'label': 'Numéro téléphone', 'attr': {'placeholder': 'Entrez votre numéro de téléphone'}})}}
-		{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez votre email'}})}}
-		{{ form_row(form.quantite, {'label': 'Quantité', 'attr': {'placeholder': 'Entrez la quantité que vous voulez'}})}}
-		<div class="g-recaptcha" data-sitekey="6LfkR6kZAAAAAB6BrLrf3CCLt8tQbPSCue-HC-h6"></div>
-		<br/>
-		<input type="submit" value="Valider" name="submitpost" onclick="return callValidation();">
+	{#Affichage du recaptcha #}
+	<div class="g-recaptcha" data-sitekey="6LfkR6kZAAAAAB6BrLrf3CCLt8tQbPSCue-HC-h6"></div>
+	<br/>
+	{#Affichage du bouton valider  #}
+	<input type="submit" value="Valider" name="submitpost" onclick="return callValidation();">
 
-		{{ form_end(form)}}
+	{{ form_end(form)}}
 
 
-	{% endblock %}
+{% endblock %}

@@ -1,6 +1,11 @@
 <?php
 // src/Controller/DemandeController.php
 
+/**
+ * The DemandeController
+ * @author kevinBoudeau
+ */
+
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +27,12 @@ class DemandeController extends AbstractController
       $_SESSION['isAdmin'] = false;
     }
   }
+
+  /**
+   * demandePage function
+   * Créer un formulaire, insére les données de ce dernier dans la Bdd et envoi un email
+   * @param $mail, $twig, $request
+   */
 
   public function demandePage(Environment $twig, Request $request, \Swift_Mailer $mail)
   {
