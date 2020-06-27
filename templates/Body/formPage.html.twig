@@ -11,23 +11,41 @@
 
 {% block body %}
 
-	<h2>
-		Demandes
-	</h2>
+	<div class='container py-5'>
 
-	{# Affichage du formulaire avec les données entrées #}
-	{{ form_start(form)}}
+		<hr class="featurette-divider">
 
-	{{ form_row(form.nom, {'label': 'Nom', 'attr': {'placeholder': 'Entrez votre nom'}})}}
-	{{ form_row(form.prenom, {'label': 'Prénom', 'attr': {'placeholder': 'Entrez votre prénom'}})}}
-	{{ form_row(form.nomEtablissement, {'label': 'Nom établissement', 'attr': {'placeholder': 'Entrez le nom de votre établissement'}})}}
-	{{ form_row(form.tel, {'label': 'Numéro téléphone', 'attr': {'placeholder': 'Entrez votre numéro de téléphone'}})}}
-	{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez votre email'}})}}
-	{{ form_row(form.quantite, {'label': 'Quantité', 'attr': {'placeholder': 'Entrez la quantité que vous voulez'}})}}
-	{#Affichage du bouton valider  #}
-	<input type="submit" value="Valider" name="submitpost">
+		<div class='py-1'>
 
-	{{ form_end(form)}}
+			<h2 class='text-center py-2'>
+				Formulaire de demande
+			</h2>
+
+			<p class='px-4'>
+				Ici vous pouvez rentrer toutes les informations nécessaires à votre demande. Veuillez vous assurer que tous les champs sont bien remplis et correspondent bien à vos coordonnées, ces données seront ensuite utilisées afin de vous recontacter et satisfaire votre demande.
+			</p>
+
+		</div>
+
+		<hr class="featurette-divider">
+
+		{# Affichage du formulaire avec les données entrées #}
+		{{ form_start(form)}}
+
+		{{ form_row(form.nom, {'label': 'Nom', 'attr': {'placeholder': 'Entrez votre nom'}})}}
+		{{ form_row(form.prenom, {'label': 'Prénom', 'attr': {'placeholder': 'Entrez votre prénom'}})}}
+		{{ form_row(form.nomEtablissement, {'label': 'Nom établissement', 'attr': {'placeholder': 'Entrez le nom de votre établissement'}})}}
+		{{ form_row(form.tel, {'label': 'Numéro téléphone', 'attr': {'placeholder': 'Entrez votre numéro de téléphone'}})}}
+		{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Entrez votre email'}})}}
+		{{ form_row(form.quantite, {'label': 'Quantité', 'attr': {'placeholder': 'Entrez la quantité que vous voulez'}})}}
+		{#Affichage du bouton valider  #}
+		<input class='btn btn-dark btn-large btn-block py-3' value='Valider' type="submit" name="submitpost">
+
+		{{ form_end(form)}}
+
+		<hr class="featurette-divider">
+
+	</div>
 
 
 {% endblock %}

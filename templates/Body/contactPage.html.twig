@@ -12,8 +12,37 @@
 {% endblock %}
 
 {% block body %}
-	<h3>My Google Maps Demo</h3>
-	<!--Element div de la map -->
-	<div id="map"></div>
+
+	<div class='container-fluid'>
+
+		<div class='row'>
+            
+
+			<!--<div class='col-2'></div>-->
+
+			<div class='col-6 py-2'>
+
+				<div class="card my-5" style="display: inline-block; width: 100%;">
+					<div class="card-header h2">
+						Nos Coordonnées
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" style='font-size: 17px'><p class='h5'>Adresse : </p><p class='px-3 py-1'>Campus CESI Toulouse, Batiment Alpha, 16 Rue Magellan, 31670 Labège</p></li>
+						<li class="list-group-item" style='font-size: 17px'><p class='h5'>N° Téléphone : </p><p class='px-3'> Gabriel RICARD : 0782360024 </br> Kevin BOURDEAU : 0644760951 </br> Corentin PAUGAM : 0695669002</p></li>
+						<li class="list-group-item" style='font-size: 17px'><p class='h5'>E-mail : </p><a  class='px-3' href='mailto:gabriel.ricard@viacesi.fr'>gabriel.ricard@viacesi.fr</a></br><a  class='px-3' href='mailto:kevin.bourdeau@viacesi.fr'>kevin.bourdeau@viacesi.fr</a></br><a  class='px-3' href='mailto:corentin.paugam@viacesi.fr'>corentin.paugam@viacesi.fr</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class='col-6'>
+				<!--<h3>My Google Maps Demo</h3>-->
+				<!--Element div de la map -->
+				<div id="map"></div>
+			</div>
+
+		</div>
+
+	</div>
 
 {% endblock %}
