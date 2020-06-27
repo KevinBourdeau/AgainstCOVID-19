@@ -44,6 +44,7 @@ class DemandeController extends AbstractController
     $form = $this->createForm(FormType::class, $demande);
 
     $form->handleRequest($request);
+    $msgError = null;
     //On verifie si le formulaire est bien soumis et valide
     if ($form->isSubmitted() && $form->isValid()) {
       //On récupère les données pour les envoyer sous forme d'émail
@@ -65,11 +66,11 @@ class DemandeController extends AbstractController
           $this->renderView('Mail/mail.html.twig', compact('data'))
         );
       $mail->send($message);
- 
+
 
       // On crée une requête HTTP de type POST afin de stocker le formulaire dans la bdd
       $client = HttpClient::create();
-      $client->request('POST', 'http://localhost:8080/api/demandes', [
+      $response = $client->request('POST', 'http://localhost:8080/api/demandes', [
         'body' => [
           'nom' => $demande->getNom(),
           'prenom' => $demande->getPrenom(),
@@ -78,10 +79,21 @@ class DemandeController extends AbstractController
           'email' => $demande->getEmail(),
           'quantite' => $demande->getQuantite(),
         ]
+
       ]);
-      //On redirige vers la page d'accueil
-      return $this->redirectToRoute('homePage');
+      // C'est le status est bon
+      if ($response->getStatusCode() == 200) {
+        //On redirige vers la page d'accueil
+        return $this->redirectToRoute('homePage');
+      } else {
+        // Erreur : On affiche le message
+        $msgError = json_decode($response->getContent(false), TRUE);
+        if ($msgError["Erreur"]) {
+          $msgError = "<h3> Deamande impossible : " . $msgError["Erreur"] . "</h3>";
+        }
+      }
     }
+
 
 
     $content =
@@ -89,6 +101,7 @@ class DemandeController extends AbstractController
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => null, 'isActive2' => null, 'isActive3' => 'active', 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) .
       $twig->render('Body/formPage.html.twig', [
         'form' => $form->createView(),
+        'msgError' => $msgError,
 
       ]) .
       $twig->render('Footer/footer.html.twig') .
