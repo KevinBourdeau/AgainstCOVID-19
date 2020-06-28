@@ -28,5 +28,5 @@ C:\wamp64\www\AgainstCOVID-19> php bin/console server:run
 ```
 et
 ```
-C:\wamp64\www\AgainstCOVID-19\API> php node server.js
+C:\wamp64\www\AgainstCOVID-19\API> node server.js
 ```
