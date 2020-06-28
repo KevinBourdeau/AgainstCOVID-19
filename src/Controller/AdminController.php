@@ -44,7 +44,7 @@ class AdminController
       
     $content .=
       $twig->render('Body/tableBottom.html.twig') .
-      $twig->render('Footer/footer.html.twig', ['isAdmin' => $_SESSION['isAdmin']]) . 
+      $twig->render('Footer/footerAdmin.html.twig', ['isAdmin' => $_SESSION['isAdmin']]) . 
       $twig->render('End/end.html.twig');
 
     if ($_SESSION['isAdmin'])

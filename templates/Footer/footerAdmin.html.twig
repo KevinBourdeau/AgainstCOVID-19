@@ -1,0 +1,29 @@
+{# templates/Footer/footer.html.twig #}
+
+
+<footer class="container-fluid" style="position: absolute; bottom: 0;">
+    <div class="container">
+        
+      <div style='align-items: center' class="row py-4">
+
+        <div class="col-md text-light text-center">
+          <h5><a class='text-light' href='{{ path('contactPage') }}'>Contact</a></h5>
+        </div>
+        <div class="col-md text-light text-center">
+          {% if isAdmin != true  %}
+            <h5><a class='text-light' href='{{ path('connectAdminPage') }}'>Espace Administrateur</a></h5>
+          {% else %}
+            <h5><a class='text-light' href='{{ path('deconnectAdmin') }}'>Se deconnecter de l'espace administrateur</a></h5>
+          {% endif %}
+        </div>
+        <div class="col-md text-muted text-center">
+          <h6>@2020 - AgainstCOVID-19 - CESI</h5>
+        </div>
+
+        <div class="col-md text-light py-4 text-center">
+          <a class="btn btn-lg btn-light" href="#" role="button">Retour en haut</a>
+        </div>
+
+      </div>
+    </div>
+</footer>
