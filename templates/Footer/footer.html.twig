@@ -10,7 +10,11 @@
           <h5><a class='text-light' href='{{ path('contactPage') }}'>Contact</a></h5>
         </div>
         <div class="col-md text-light text-center">
-          <h5><a class='text-light' href='{{ path('connectAdminPage') }}'>Espace Administrateur</a></h5>
+          {% if isAdmin != true  %}
+            <h5><a class='text-light' href='{{ path('connectAdminPage') }}'>Espace Administrateur</a></h5>
+          {% else %}
+            <h5><a class='text-light' href='{{ path('deconnectAdmin') }}'>Se deconnecter de l'espace administrateur</a></h5>
+          {% endif %}
         </div>
         <div class="col-md text-muted text-center">
           <h6>@2020 - AgainstCOVID-19 - CESI</h5>

@@ -53,5 +53,15 @@ class ConnectAdminController extends AbstractController
     }
 
   }
+
+  public function deconnectAdmin()
+  {
+    $this->sessionStart();
+
+    $_SESSION['isAdmin'] = false;
+
+    return $this->redirectToRoute('homePage');
+
+  }
   
 }

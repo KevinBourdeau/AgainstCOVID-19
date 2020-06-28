@@ -104,7 +104,7 @@ class DemandeController extends AbstractController
         'msgError' => $msgError,
 
       ]) .
-      $twig->render('Footer/footer.html.twig') .
+      $twig->render('Footer/footer.html.twig', ['isAdmin' => $_SESSION['isAdmin']]) .
       $twig->render('End/end.html.twig');
 
     return new Response($content);

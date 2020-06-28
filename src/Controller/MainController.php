@@ -49,7 +49,7 @@ class MainController
       $twig->render('Header/header.html.twig', ['page' => 'Accueil']) . 
       $twig->render('Navbar/navbar.html.twig', ['isActive1' => 'active', 'isActive2' => null, 'isActive3' => null, 'isActive4' => null, 'isAdmin' => $_SESSION['isAdmin']]) . 
       $twig->render('Body/homePage.html.twig', ['s1' => $s1, 's2' => $s2, 's3' => $s3]) . 
-      $twig->render('Footer/footer.html.twig') . 
+      $twig->render('Footer/footer.html.twig', ['isAdmin' => $_SESSION['isAdmin']]) . 
       $twig->render('End/end.html.twig');
 
     return new Response($content);

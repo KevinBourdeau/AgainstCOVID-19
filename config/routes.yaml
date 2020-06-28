@@ -25,6 +25,10 @@ connectAdminPage:
 connectAdminCheck:
     path: /connectAdminCheck
     controller: App\Controller\ConnectAdminController::connectAdminCheck
+
+deconnectAdmin:
+    path: /deconnectAdmin
+    controller: App\Controller\ConnectAdminController::deconnectAdmin
     
 contactPage:
     path: /contact
