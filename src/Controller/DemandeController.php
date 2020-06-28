@@ -21,6 +21,8 @@ class DemandeController extends AbstractController
 
   public function sessionStart()
   {
+    session_start();
+
     if (isset($_SESSION['isAdmin']) == false) {
       $_SESSION['isAdmin'] = false;
     }
