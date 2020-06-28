@@ -7,3 +7,15 @@ footer
 {
   background-color: rgba(0, 0, 0, 0.95);
 }
+
+.carousel-container
+{
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 1em;
+}
+
+.marketing
+{
+  padding-top: 5em;
+}
