@@ -22,6 +22,8 @@ Pour pouvoir utiliser le site, il faut installer toutes les dépendances asscoci
 C:\wamp64\www\AgainstCOVID-19> composer install
 
 ```
+Il faut ensuite créer une bdd du nom de "ac19". La table, elle sera créer automatiquement en lanceant l'API.
+
 Puis ensuite lancer les deux commandes suivantes afin de lancer le serveur Symfony et notre API : 
 ```
 C:\wamp64\www\AgainstCOVID-19> php bin/console server:run
